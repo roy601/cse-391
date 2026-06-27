@@ -1,0 +1,590 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Apurba Roy – Full-Stack Developer and AI Researcher based in Dhaka, Bangladesh." />
+    <meta name="author" content="Apurba Roy" />
+    <meta name="keywords" content="Apurba Roy, full-stack developer, AI researcher, BRAC University, Next.js, Flutter" />
+    <title>Apurba Roy | Full-Stack Developer &amp; AI Researcher</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin" />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=DM+Mono:wght@300;400;500&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <!-- Internal CSS: minor page-specific styles -->
+    <style>
+        .sc            { color: var(--accent); font-style: italic; }  /* scramble-effect chars */
+        .gh-stats      { width: 100%; border-radius: 8px; margin-top: 1rem; display: block; }
+        .bold-inline   { font-weight: 700; }
+    </style>
+</head>
+<body data-theme="dark">
+
+<!-- Custom cursor -->
+<div class="cursor-dot"    id="cursorDot"></div>
+<div class="cursor-ring"   id="cursorRing"></div>
+
+<!-- Scroll progress bar -->
+<div class="scroll-bar" id="scrollBar"></div>
+
+<!-- Side section navigation dots -->
+<nav id="sideNav" aria-label="Section navigation"></nav>
+
+<!-- ── THEME TOGGLE ──────────────────────────────────── -->
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle colour theme">
+    <span class="toggle-icon">&#9728;</span>
+</button>
+
+<!-- ── NAVIGATION ───────────────────────────────────── -->
+<nav class="navbar" id="navbar">
+    <a href="#hero" class="nav-logo">AR<span class="logo-dot">.</span></a>
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#about"     data-section="about">About</a></li>
+        <li><a href="#education" data-section="education">Education</a></li>
+        <li><a href="#work"      data-section="work">Projects</a></li>
+        <li><a href="#skills"    data-section="skills">Skills</a></li>
+        <li><a href="#links"     data-section="links">Links</a></li>
+        <li><a href="#contact"   data-section="contact">Contact</a></li>
+        <li><a href="hobbies.html" class="nav-internal">Hobbies</a></li>
+        <li>
+            <a href="https://github.com/roy601" target="_blank" rel="noopener noreferrer" class="nav-cta">
+                GitHub &#8599;
+            </a>
+        </li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu">&#9776;</button>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+    <canvas id="particleCanvas" aria-hidden="true"></canvas>
+    <div class="hero-inner container">
+        <div class="hero-content">
+            <p class="hero-tag mono">Hello, world. I&#8217;m &#8212;</p>
+            <h1 class="hero-name">
+                <span class="name-first">Apurba</span>
+                <span class="name-last">Roy</span>
+            </h1>
+            <p class="hero-tagline">
+                I build <strong class="accent">production-grade</strong> web and desktop
+                applications and research <strong class="accent">AI systems</strong> that
+                protect them.
+            </p>
+            <p class="hero-sub mono">
+                Finishing my CS degree at
+                <a href="https://www.bracu.ac.bd/" target="_blank" rel="noopener noreferrer" class="accent-link">
+                    BRAC University
+                </a>
+                while shipping real software.
+            </p>
+            <p class="hero-role mono">&#47;&#47; <span id="typingRole"></span></p>
+            <div class="hero-cta">
+                <a href="#work"    class="btn btn-primary">View Projects</a>
+                <a href="#contact" class="btn btn-outline">Get in Touch</a>
+            </div>
+            <div class="hero-socials">
+                <a href="https://github.com/roy601"  target="_blank" rel="noopener noreferrer" class="social-link">GitHub</a>
+                <span class="social-sep">/</span>
+                <a href="https://codeforces.com/"         target="_blank" rel="noopener noreferrer" class="social-link">Codeforces</a>
+                <span class="social-sep">/</span>
+                <a href="mailto:apurbor39@gmail.com"      class="social-link">Email</a>
+            </div>
+        </div>
+        <!-- 3D Particle Orb -->
+        <div class="orb-wrapper">
+            <canvas id="orbCanvas" aria-label="Interactive 3D neural network globe — drag to rotate"></canvas>
+            <p class="drag-hint mono" id="orbHint">&#8645; drag to rotate</p>
+        </div>
+    </div>
+    <a href="#about" class="scroll-hint" aria-label="Scroll to About">
+        <span class="scroll-line"></span>
+        <span class="scroll-label mono">SCROLL</span>
+    </a>
+</section>
+
+<!-- 01 — ABOUT -->
+<section id="about" class="section fade-in">
+    <div class="section-label mono">01 — About</div>
+    <div class="container">
+        <div class="about-grid">
+            <div class="about-text">
+                <h2 class="section-title">Who I Am</h2>
+                <p>
+                    I&#8217;m <strong>Apurba Roy</strong>, a final-year Computer Science undergraduate at
+                    <a href="https://www.bracu.ac.bd/" target="_blank" rel="noopener noreferrer" class="accent-link">
+                        BRAC University
+                    </a>,
+                    Bangladesh, specialising in <em>full-stack development</em> and
+                    <em>AI-driven cybersecurity</em>.
+                </p>
+                <p>
+                    My work sits at the intersection of practical software engineering and academic research.
+                    I&#8217;ve built everything from
+                    <!-- link embedded within a sentence (assignment requirement) -->
+                    <a href="#work" class="accent-link">mobile POS systems</a>
+                    with barcode scanning and bKash integration to healthcare platforms serving
+                    real Bangladeshi users.
+                </p>
+                <p>
+                    I&#8217;m currently focused on building software that works for
+                    <strong>real people in Bangladesh</strong> &#8212; local payment systems,
+                    bilingual support, and real-world constraints.
+                </p>
+                <div class="tech-stack">
+                    <span class="tech-badge">Next.js</span>
+                    <span class="tech-badge">Supabase</span>
+                    <span class="tech-badge">Flutter</span>
+                    <span class="tech-badge">TypeScript</span>
+                    <span class="tech-badge">PyTorch</span>
+                    <span class="tech-badge">Electron</span>
+                </div>
+            </div>
+            <div class="about-aside">
+                <div class="profile-photo-wrapper">
+                    <!-- Local image — replace profile.svg with profile.jpg once you have your photo -->
+                    <img
+                        src="images/IMG_7449.jpg"
+                        alt="Apurba Roy – profile photo"
+                        class="profile-photo"
+                        id="profileImg"
+                    />
+                    <div class="photo-initials" id="photoFallback" aria-hidden="true">AR</div>
+                    <div class="photo-frame"></div>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card tilt-card">
+                        <span class="stat-number">13+</span>
+                        <span class="stat-label mono">Public repos</span>
+                    </div>
+                    <div class="stat-card tilt-card">
+                        <span class="stat-number">4+</span>
+                        <span class="stat-label mono">Projects shipped</span>
+                    </div>
+                    <div class="stat-card tilt-card">
+                        <span class="stat-number">2</span>
+                        <span class="stat-label mono">Research tracks</span>
+                    </div>
+                    <div class="stat-card tilt-card">
+                        <span class="stat-number">BD</span>
+                        <span class="stat-label mono">Dhaka, Bangladesh</span>
+                    </div>
+                </div>
+                <!-- Web image: live GitHub contribution stats -->
+                <img
+                    src="https://github-readme-stats.vercel.app/api?username=roy601&show_icons=true&theme=dark&hide_border=true&bg_color=00000000&title_color=FFE135&icon_color=FFE135&text_color=ffffff"
+                    alt="Apurba Roy – GitHub statistics"
+                    class="gh-stats"
+                />
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 02 — EDUCATION -->
+<section id="education" class="section section-alt fade-in">
+    <div class="section-label mono">02 — Education</div>
+    <div class="container">
+        <h2 class="section-title">Academic Profile</h2>
+        <div class="table-wrapper">
+            <table class="edu-table">
+                <caption>Academic &amp; Technical Profile &#8212; Apurba Roy</caption>
+                <thead>
+                    <tr>
+                        <th colspan="2" style="text-align:center;">Academic &amp; Technical Overview</th>
+                    </tr>
+                    <tr>
+                        <th style="width:28%;">Category</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Institution</strong></td>
+                        <td>
+                            <a href="https://www.bracu.ac.bd/" target="_blank" rel="noopener noreferrer">
+                                BRAC University
+                            </a>, Dhaka, Bangladesh<br />
+                            <span class="small-italic">B.Sc. in Computer Science &#8212; Final Year</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Research Focus &amp;<br />Dissertation Area</strong></td>
+                        <!-- rowspan merges this cell across the next row -->
+                        <td rowspan="2">
+                            AI-driven cybersecurity with emphasis on multi-agent reinforcement
+                            learning (MARL). Currently implementing <strong>MADDPG</strong> and
+                            <strong>QMIX</strong> algorithms to build adaptive, autonomous defence
+                            systems. This research bridges academic theory with real-world threat
+                            modelling &#8212; an area largely unexplored in the Bangladeshi tech
+                            ecosystem.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Key Algorithms</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Core Coursework</strong></td>
+                        <td>
+                            Data Structures &amp; Algorithms &#183;
+                            Operating Systems &#183;
+                            Computer Networks &#183;
+                            DBMS &#183;
+                            Machine Learning &#183;
+                            Software Engineering &#183;
+                            Compiler Design
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Industry Experience</strong></td>
+                        <td>
+                            Shipped production software used by actual businesses, including a
+                            Windows-packaged POS system for Bangladeshi mobile phone retailers
+                            and a peer-review platform for university students.<br />
+                            <span class="small-italic">See the Projects section for full details.</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Currently Learning</strong></td>
+                        <td>Advanced TypeScript &#183; MADDPG / QMIX (MARL) &#183; Electron IPC &#183; Turborepo</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="2" style="text-align:center; font-style:italic;">
+                            Always building. Always learning.
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- 03 — PROJECTS -->
+<section id="work" class="section fade-in">
+    <div class="section-label mono">03 — Work</div>
+    <div class="container">
+        <h2 class="section-title">Projects</h2>
+        <div class="projects-grid">
+            <article class="project-card tilt-card featured">
+                <div class="project-badges">
+                    <span class="badge badge-type">Desktop App</span>
+                    <span class="badge badge-featured">Featured</span>
+                    <span class="badge badge-production">Production</span>
+                </div>
+                <h3 class="project-title">Multi-Tenant-Retail-POS</h3>
+                <p class="project-desc">
+                    A production-ready, desktop-packaged Point of Sale system built for Bangladeshi
+                    mobile phone shops. Features barcode scanning, multi-payment support (Cash, Card,
+                    bKash, Nagad), hold-sale transactions, invoice printing, email receipts via SMTP,
+                    a real-time day cashbook, multi-role access (Owner / Manager), and an interactive
+                    analytics dashboard. Packaged as a Windows .exe with Electron.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">Next.js App Router</span>
+                    <span class="tech-tag">Supabase</span>
+                    <span class="tech-tag">Electron</span>
+                    <span class="tech-tag">Tailwind CSS</span>
+                    <span class="tech-tag">TypeScript</span>
+                    <span class="tech-tag">MySQL</span>
+                </div>
+            </article>
+            <article class="project-card tilt-card">
+                <div class="project-badges"><span class="badge badge-type">Mobile App</span></div>
+                <h3 class="project-title">Bangladesh Landmarks</h3>
+                <p class="project-desc">
+                    A Flutter app showcasing notable landmarks across Bangladesh with location-based
+                    exploration and cultural context. Built for locals and tourists to discover the
+                    country&#8217;s heritage.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">Flutter</span>
+                    <span class="tech-tag">Dart</span>
+                    <span class="tech-tag">Maps API</span>
+                </div>
+                <a href="https://github.com/roy601" target="_blank" rel="noopener noreferrer" class="project-link">
+                    View on GitHub &#8599;
+                </a>
+            </article>
+            <article class="project-card tilt-card">
+                <div class="project-badges"><span class="badge badge-type">Web App</span></div>
+                <h3 class="project-title">University Faculty Review</h3>
+                <p class="project-desc">
+                    A peer-review platform where students submit and browse honest evaluations of
+                    faculty members &#8212; bringing transparency and student voice to academic
+                    institutions.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">PHP</span>
+                    <span class="tech-tag">MySQL</span>
+                    <span class="tech-tag">HTML / CSS</span>
+                </div>
+                <a href="https://github.com/roy601" target="_blank" rel="noopener noreferrer" class="project-link">
+                    View on GitHub &#8599;
+                </a>
+            </article>
+            <article class="project-card tilt-card">
+                <div class="project-badges"><span class="badge badge-type">Mobile App</span></div>
+                <h3 class="project-title">PayPoint Mobile</h3>
+                <p class="project-desc">
+                    A Flutter-based mobile POS application for Android. Handles sales transactions,
+                    product management, and receipt generation &#8212; the precursor to the full
+                    desktop POS system.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">Flutter</span>
+                    <span class="tech-tag">Dart</span>
+                    <span class="tech-tag">Firebase</span>
+                </div>
+                <a href="https://github.com/roy601" target="_blank" rel="noopener noreferrer" class="project-link">
+                    View on GitHub &#8599;
+                </a>
+            </article>
+            <article class="project-card tilt-card">
+                <div class="project-badges">
+                    <span class="badge badge-type">Web App</span>
+                    <span class="badge badge-inprogress">In Progress</span>
+                </div>
+                <h3 class="project-title">Car Rental Platform</h3>
+                <p class="project-desc">
+                    A full-stack car rental web application with vehicle listings, booking flows,
+                    and a clean responsive interface. Built on Next.js App Router with Turbopack.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">Next.js</span>
+                    <span class="tech-tag">Tailwind CSS v4</span>
+                    <span class="tech-tag">TypeScript</span>
+                    <span class="tech-tag">Turbopack</span>
+                </div>
+            </article>
+            <article class="project-card tilt-card">
+                <div class="project-badges">
+                    <span class="badge badge-type">Healthcare</span>
+                    <span class="badge badge-concept">Concept</span>
+                </div>
+                <h3 class="project-title">MediLink 360</h3>
+                <p class="project-desc">
+                    An ambitious national healthcare platform for Bangladesh. Features BMDC doctor
+                    verification, bilingual Bengali / English UI, real hospital data, and an
+                    interactive anatomical body map.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">Next.js 14</span>
+                    <span class="tech-tag">Supabase</span>
+                    <span class="tech-tag">shadcn/ui</span>
+                    <span class="tech-tag">TypeScript</span>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- 04 — SKILLS -->
+<section id="skills" class="section section-alt fade-in">
+    <div class="section-label mono">04 — Skills</div>
+    <div class="container">
+        <h2 class="section-title">Toolkit</h2>
+        <div class="skills-grid">
+            <div class="skill-category tilt-card">
+                <h3>Frontend</h3>
+                <ul>
+                    <li>Next.js (App Router)</li>
+                    <li>React &amp; React Native</li>
+                    <li>TypeScript</li>
+                    <li>Tailwind CSS</li>
+                    <li>shadcn/ui &amp; Figma</li>
+                </ul>
+            </div>
+            <div class="skill-category tilt-card">
+                <h3>Backend &amp; DB</h3>
+                <ul>
+                    <li>Supabase (Auth, DB, Storage)</li>
+                    <li>Node.js</li>
+                    <li>MySQL &amp; Firebase</li>
+                    <li>REST APIs</li>
+                    <li>SMTP automation</li>
+                </ul>
+            </div>
+            <div class="skill-category tilt-card">
+                <h3>Mobile &amp; Desktop</h3>
+                <ul>
+                    <li>Flutter &amp; Dart</li>
+                    <li>Electron.js</li>
+                    <li>Android (via Flutter)</li>
+                    <li>Windows packaging</li>
+                </ul>
+            </div>
+            <div class="skill-category tilt-card">
+                <h3>AI / ML</h3>
+                <ul>
+                    <li>PyTorch</li>
+                    <li>Transformer Architecture</li>
+                    <li>Reinforcement Learning</li>
+                    <li>Multi-Agent Systems</li>
+                    <li>Python</li>
+                </ul>
+            </div>
+            <div class="skill-category tilt-card">
+                <h3>Tools &amp; Other</h3>
+                <ul>
+                    <li>Git &amp; GitHub</li>
+                    <li>Java</li>
+                    <li>Adobe Illustrator / PS</li>
+                    <li>Barcode systems</li>
+                    <li>bKash / Nagad APIs</li>
+                </ul>
+            </div>
+            <div class="skill-category tilt-card learning">
+                <h3>Currently Learning</h3>
+                <ul>
+                    <li>Advanced TypeScript</li>
+                    <li>MADDPG &amp; QMIX (MARL)</li>
+                    <li>Electron IPC patterns</li>
+                    <li>Turborepo Monorepos</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 05 — LINKS (categorised) -->
+<section id="links" class="section fade-in">
+    <div class="section-label mono">05 — Links</div>
+    <div class="container">
+        <h2 class="section-title">Around the Web</h2>
+        <div class="links-grid">
+            <div class="link-category tilt-card">
+                <h3>&#127979; Academic</h3>
+                <ul>
+                    <li>
+                        <a href="https://www.bracu.ac.bd/" target="_blank" rel="noopener noreferrer">
+                            BRAC University &#8599;
+                        </a>
+                    </li>
+                    <li>
+                        <!-- CSE 391 Discord — replace # with actual invite URL -->
+                        <a href="#" target="_blank" rel="noopener noreferrer">
+                            CSE 391 Discord &#8599;
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://codeforces.com/" target="_blank" rel="noopener noreferrer">
+                            Codeforces &#8599;
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="link-category tilt-card">
+                <h3>&#128187; Development</h3>
+                <ul>
+                    <li>
+                        <a href="https://github.com/roy601" target="_blank" rel="noopener noreferrer">
+                            GitHub Profile &#8599;
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://nextjs.org/docs" target="_blank" rel="noopener noreferrer">
+                            Next.js Docs &#8599;
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://supabase.com/docs" target="_blank" rel="noopener noreferrer">
+                            Supabase Docs &#8599;
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="link-category tilt-card">
+                <h3>&#128100; Personal</h3>
+                <ul>
+                    <!-- Internal link to hobbies page -->
+                    <li><a href="hobbies.html">My Hobbies</a></li>
+                    <li><a href="mailto:apurbor39@gmail.com">Email Me</a></li>
+                    <!-- Anchor link to contact section -->
+                    <li><a href="#contact">Get in Touch</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 06 — QUOTE + LIST -->
+<section id="quote" class="section section-alt fade-in">
+    <div class="container">
+        <div class="quote-block">
+            <blockquote>
+                <p>
+                    &#8220;Programs must be written for people to read, and only incidentally
+                    for machines to execute.&#8221;
+                </p>
+                <footer>
+                    &#8212; <cite>Harold Abelson,
+                    <em>Structure and Interpretation of Computer Programs</em></cite>
+                </footer>
+            </blockquote>
+        </div>
+        <div class="favorites">
+            <h2 class="section-title">Top 10 Developer Tools I Love</h2>
+            <ol class="favorites-list">
+                <li><strong>Next.js</strong> &#8212; The React framework that made me enjoy full-stack development.</li>
+                <li><strong>Supabase</strong> &#8212; Firebase&#8217;s open-source rival; Postgres with superpowers.</li>
+                <li><strong>TypeScript</strong> &#8212; JavaScript with a safety net is just better JavaScript.</li>
+                <li><strong>Tailwind CSS</strong> &#8212; Utility-first CSS that finally made styling fast.</li>
+                <li><strong>Flutter</strong> &#8212; Write once, ship to Android, iOS, and web.</li>
+                <li><strong>PyTorch</strong> &#8212; The framework that made deep learning approachable.</li>
+                <li><strong>Electron.js</strong> &#8212; Packaging web apps as desktop software changed everything.</li>
+                <li><strong>Git</strong> &#8212; Time travel for your code. Non-negotiable.</li>
+                <li><strong>shadcn/ui</strong> &#8212; Beautiful accessible components that don&#8217;t lock you in.</li>
+                <li><strong>VS Code</strong> &#8212; The editor that gets out of the way and lets you code.</li>
+            </ol>
+        </div>
+    </div>
+</section>
+
+<!-- 07 — CONTACT -->
+<section id="contact" class="section fade-in">
+    <div class="section-label mono">06 — Contact</div>
+    <div class="container">
+        <h2 class="section-title">Let&#8217;s Work Together</h2>
+        <p class="contact-sub">
+            Whether you have a project in mind, want to collaborate on research, or just want
+            to say hello &#8212; my inbox is always open. Best reached at
+            <a href="mailto:apurbor39@gmail.com" class="accent-link">apurbor39@gmail.com</a>.
+        </p>
+        <form class="contact-form" action="mailto:apurbor39@gmail.com" method="post" enctype="text/plain">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="fname">Name</label>
+                    <input type="text" id="fname" name="name" placeholder="Your name" required="required" />
+                </div>
+                <div class="form-group">
+                    <label for="femail">Email</label>
+                    <input type="email" id="femail" name="email" placeholder="your@email.com" required="required" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fmessage">Message</label>
+                <textarea id="fmessage" name="message" rows="5" placeholder="What&#8217;s on your mind?" required="required"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message &#8594;</button>
+        </form>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="container footer-inner">
+        <p>
+            &copy; <span id="year"></span>
+            <strong>Apurba Roy</strong> &#8212; Dhaka, Bangladesh.
+        </p>
+        <!-- JavaScript: page location + last modified (assignment requirement) -->
+        <p class="footer-meta mono" id="pageMeta"></p>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
+

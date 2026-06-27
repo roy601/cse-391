@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Apurba Roy's hobbies and interests outside of coding." />
+    <meta name="author" content="Apurba Roy" />
+    <title>Hobbies &amp; Interests | Apurba Roy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin" />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=DM+Mono:wght@300;400;500&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <!-- Internal CSS: page-specific tweaks -->
+    <style>
+        .hobbies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .hobby-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            transition: border-color var(--transition), box-shadow var(--transition);
+        }
+        .hobby-card:hover {
+            border-color: var(--accent);
+            box-shadow: var(--shadow-glow);
+        }
+        .hobby-icon {
+            font-size: 2.2rem;
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+        .hobby-card h3 {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            letter-spacing: 0.06em;
+            color: var(--accent);
+            margin-bottom: 0.6rem;
+            text-transform: uppercase;
+        }
+        .hobby-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.65;
+        }
+        .page-hero {
+            padding: 10rem 0 5rem;
+            background: var(--bg-alt);
+            border-bottom: 1px solid var(--border);
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            color: var(--text-dim);
+            margin-bottom: 2rem;
+            transition: color var(--transition);
+        }
+        .back-link:hover { color: var(--accent); opacity: 1; }
+        .page-header-label {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+        /* Web image in the travel hobby card */
+        .hobby-img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            border-radius: var(--radius);
+            margin-bottom: 0.75rem;
+            border: 1px solid var(--border);
+        }
+    </style>
+</head>
+<body data-theme="dark">
+
+<!-- ── THEME TOGGLE ──────────────────────────────────── -->
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle colour theme">
+    <span class="toggle-icon">&#9728;</span>
+</button>
+
+<!-- ── NAVIGATION ───────────────────────────────────── -->
+<nav class="navbar scrolled" id="navbar">
+    <a href="index.html" class="nav-logo">AR</a>
+    <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#work">Projects</a></li>
+        <li><a href="index.html#skills">Skills</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="index.html" class="nav-cta">&#8592; Back to Portfolio</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu">&#9776;</button>
+</nav>
+
+<!-- ── PAGE HERO ─────────────────────────────────────── -->
+<header class="page-hero">
+    <div class="container">
+        <a href="index.html" class="back-link">&#8592; Back to Portfolio</a>
+        <p class="page-header-label">Personal</p>
+        <h1 class="section-title">Hobbies &amp; Interests</h1>
+        <p style="color: var(--text-muted); max-width: 520px;">
+            Outside of code and research, here&#8217;s what keeps me curious and grounded.
+        </p>
+    </div>
+</header>
+
+<!-- ── MAIN CONTENT ──────────────────────────────────── -->
+<main>
+    <section class="section">
+        <div class="container">
+
+            <div class="hobbies-grid">
+
+                <div class="hobby-card">
+                    <span class="hobby-icon">&#9749;</span>
+                    <h3>Competitive Programming</h3>
+                    <p>
+                        I enjoy solving algorithmic problems on
+                        <a href="https://codeforces.com/" target="_blank" rel="noopener noreferrer">Codeforces</a>
+                        in my spare time. It keeps my problem-solving instincts sharp and
+                        teaches me to think about efficiency before I even open a code editor.
+                    </p>
+                </div>
+
+                <div class="hobby-card">
+                    <span class="hobby-icon">&#9823;</span>
+                    <h3>Chess</h3>
+                    <p>
+                        Chess is the closest thing to pure strategy I know. I play casually
+                        online and find that the positional thinking carries over into software
+                        architecture more than I expected.
+                    </p>
+                </div>
+
+                <div class="hobby-card">
+                    <!-- Web-linked image (satisfies assignment requirement) -->
+                    <img
+                        src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=600&q=80"
+                        alt="City skyline representing travel and exploration"
+                        class="hobby-img"
+                    />
+                    <h3>Exploring Cities</h3>
+                    <p>
+                        There&#8217;s something compelling about walking through a city you
+                        don&#8217;t know. I&#8217;m fascinated by how urban spaces reflect
+                        the culture and constraints of the people who built them.
+                    </p>
+                </div>
+
+                <div class="hobby-card">
+                    <span class="hobby-icon">&#127911;</span>
+                    <h3>Music While Coding</h3>
+                    <p>
+                        Lo-fi, classical guitar, and the occasional film score. I firmly believe
+                        the right playlist is a legitimate productivity tool &#8212; not just
+                        background noise.
+                    </p>
+                </div>
+
+                <div class="hobby-card">
+                    <span class="hobby-icon">&#128214;</span>
+                    <h3>Reading</h3>
+                    <p>
+                        Mostly CS classics (<em>SICP</em>, <em>The Pragmatic Programmer</em>)
+                        and the occasional piece on economics or history. I like books that
+                        change how I think, not just what I know.
+                    </p>
+                </div>
+
+                <div class="hobby-card">
+                    <span class="hobby-icon">&#127798;</span>
+                    <h3>Building Side Projects</h3>
+                    <p>
+                        Half my hobbies turn into side projects. I prototype ideas quickly
+                        to validate whether they&#8217;re worth building &#8212; most aren&#8217;t,
+                        and that&#8217;s fine. The process itself is the point.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Categorised links section (matches assignment requirement) -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">Favourite Resources</h2>
+
+            <ul style="list-style: disc; padding-left: 1.5rem; display: flex; flex-direction: column; gap: 0.6rem;">
+                <li>
+                    <a href="https://www.bracu.ac.bd/" target="_blank" rel="noopener noreferrer">
+                        BRAC University
+                    </a> &#8212; where I study and occasionally sleep.
+                </li>
+                <li>
+                    <a href="https://nextjs.org/docs" target="_blank" rel="noopener noreferrer">
+                        Next.js Documentation
+                    </a> &#8212; my most-visited page by some margin.
+                </li>
+                <li>
+                    <a href="https://pytorch.org/docs/" target="_blank" rel="noopener noreferrer">
+                        PyTorch Docs
+                    </a> &#8212; essential for my AI research.
+                </li>
+                <li>
+                    <a href="https://codeforces.com/" target="_blank" rel="noopener noreferrer">
+                        Codeforces
+                    </a> &#8212; competitive programming when I want to think hard.
+                </li>
+                <li>
+                    <a href="index.html#work">My Projects</a> &#8212; see what I&#8217;ve actually shipped.
+                </li>
+            </ul>
+        </div>
+    </section>
+</main>
+
+<!-- ── FOOTER ─────────────────────────────────────────── -->
+<footer class="footer">
+    <div class="container footer-inner">
+        <p>
+            &copy; <span id="year"></span>
+            <strong>Apurba Roy</strong> &#8212; Dhaka, Bangladesh.
+        </p>
+        <p class="footer-meta mono" id="pageMeta"></p>
+    </div>
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+document.getElementById('pageMeta').innerHTML =
+    'URL: ' + window.location.href +
+    ' &nbsp;|&nbsp; Last modified: ' + document.lastModified;
+
+var themeToggle = document.getElementById('themeToggle');
+var icon        = themeToggle.querySelector('.toggle-icon');
+themeToggle.addEventListener('click', function () {
+    var isDark = document.body.getAttribute('data-theme') === 'dark';
+    document.body.setAttribute('data-theme', isDark ? 'light' : 'dark');
+    icon.innerHTML = isDark ? '&#9790;' : '&#9728;';
+});
+
+var navToggle = document.getElementById('navToggle');
+var navLinks  = document.getElementById('navLinks');
+navToggle.addEventListener('click', function () {
+    navLinks.classList.toggle('open');
+});
+</script>
+
+</body>
+</html>

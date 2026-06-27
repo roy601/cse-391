@@ -1,0 +1,11 @@
+# Python helpers
+*.py
+__pycache__/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+*.swp
