@@ -25,11 +25,11 @@
 
 /* ── Variables — Light ─────────────────────────────────────── */
 [data-theme="light"] {
-    --bg:           #ffffff;
-    --bg-alt:       #f2f2f2;
-    --surface:      #e8e8e8;
-    --surface-hover:#dadada;
-    --border:       #cccccc;
+    --bg:           #fefce8;
+    --bg-alt:       #fdf6c3;
+    --surface:      #fbf0a0;
+    --surface-hover:#f7e96a;
+    --border:       #e8d84a;
     --accent:       #d4a800;
     --accent-dim:   rgba(212, 168, 0, 0.08);
     --accent-glow:  rgba(212, 168, 0, 0.2);
@@ -39,6 +39,10 @@
     --shadow:       0 6px 30px rgba(0, 0, 0, 0.1);
     --shadow-glow:  0 0 28px rgba(212, 168, 0, 0.15);
 }
+
+/* ── Light mode: canvas adapts in JS; hero text uses dark vars ── */
+[data-theme="light"] #hero .btn-outline   { border-color: var(--text); color: var(--text); }
+[data-theme="light"] #hero .btn-outline:hover { background: var(--text); color: var(--bg); }
 
 /* ── Reset ─────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -363,7 +367,7 @@ a:hover { opacity: 0.75; }
 /* Shimmer: yellow → white → yellow (CSS animation) */
 .name-last {
     display: block;
-    background: linear-gradient(90deg, var(--accent), #ffffff, var(--accent));
+    background: linear-gradient(90deg, var(--accent), var(--text), var(--accent));
     background-size: 220% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

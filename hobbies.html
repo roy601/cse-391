@@ -84,6 +84,16 @@
 </head>
 <body data-theme="dark">
 
+<!-- Custom cursor -->
+<div class="cursor-dot"  id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- Scroll progress bar -->
+<div class="scroll-bar" id="scrollBar"></div>
+
+<!-- Side nav (required by script.js) -->
+<nav id="sideNav" aria-label="Section navigation"></nav>
+
 <!-- ── THEME TOGGLE ──────────────────────────────────── -->
 <button class="theme-toggle" id="themeToggle" aria-label="Toggle colour theme">
     <span class="toggle-icon">&#9728;</span>
@@ -237,26 +247,7 @@
     </div>
 </footer>
 
-<script>
-document.getElementById('year').textContent = new Date().getFullYear();
-document.getElementById('pageMeta').innerHTML =
-    'URL: ' + window.location.href +
-    ' &nbsp;|&nbsp; Last modified: ' + document.lastModified;
-
-var themeToggle = document.getElementById('themeToggle');
-var icon        = themeToggle.querySelector('.toggle-icon');
-themeToggle.addEventListener('click', function () {
-    var isDark = document.body.getAttribute('data-theme') === 'dark';
-    document.body.setAttribute('data-theme', isDark ? 'light' : 'dark');
-    icon.innerHTML = isDark ? '&#9790;' : '&#9728;';
-});
-
-var navToggle = document.getElementById('navToggle');
-var navLinks  = document.getElementById('navLinks');
-navToggle.addEventListener('click', function () {
-    navLinks.classList.toggle('open');
-});
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>

@@ -13,9 +13,12 @@
     <link rel="stylesheet" href="style.css" />
     <!-- Internal CSS: minor page-specific styles -->
     <style>
-        .sc            { color: var(--accent); font-style: italic; }  /* scramble-effect chars */
+        .sc            { color: var(--accent); font-style: italic; }
         .gh-stats      { width: 100%; border-radius: 8px; margin-top: 1rem; display: block; }
         .bold-inline   { font-weight: 700; }
+        .form-status   { margin-top: 0.75rem; font-size: 0.9rem; min-height: 1.2em; }
+        .form-success  { color: #4caf50; }
+        .form-error    { color: #f44336; }
     </style>
 </head>
 <body data-theme="dark">
@@ -171,7 +174,10 @@
                 </div>
                 <!-- Web image: live GitHub contribution stats -->
                 <img
-                    src="https://github-readme-stats.vercel.app/api?username=roy601&show_icons=true&theme=dark&hide_border=true&bg_color=00000000&title_color=FFE135&icon_color=FFE135&text_color=ffffff"
+                    id="ghStats"
+                    src="https://github-readme-stats.vercel.app/api?username=roy601&show_icons=true&hide_border=true&bg_color=00000000&title_color=FFE135&icon_color=FFE135&text_color=ffffff"
+                    data-dark-src="https://github-readme-stats.vercel.app/api?username=roy601&show_icons=true&hide_border=true&bg_color=00000000&title_color=FFE135&icon_color=FFE135&text_color=ffffff"
+                    data-light-src="https://github-readme-stats.vercel.app/api?username=roy601&show_icons=true&hide_border=true&bg_color=00000000&title_color=d4a800&icon_color=d4a800&text_color=0a0a0a"
                     alt="Apurba Roy – GitHub statistics"
                     class="gh-stats"
                 />
@@ -551,7 +557,7 @@
             to say hello &#8212; my inbox is always open. Best reached at
             <a href="mailto:apurbor39@gmail.com" class="accent-link">apurbor39@gmail.com</a>.
         </p>
-        <form class="contact-form" action="mailto:apurbor39@gmail.com" method="post" enctype="text/plain">
+        <form class="contact-form" id="contactForm" action="https://formspree.io/f/mqevlaap" method="POST">
             <div class="form-row">
                 <div class="form-group">
                     <label for="fname">Name</label>
@@ -566,7 +572,8 @@
                 <label for="fmessage">Message</label>
                 <textarea id="fmessage" name="message" rows="5" placeholder="What&#8217;s on your mind?" required="required"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">Send Message &#8594;</button>
+            <button type="submit" class="btn btn-primary" id="contactBtn">Send Message &#8594;</button>
+            <p class="form-status" id="formStatus"></p>
         </form>
     </div>
 </section>

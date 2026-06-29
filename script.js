@@ -128,12 +128,16 @@ window.addEventListener('scroll', function () {
    7. THEME TOGGLE
 ============================================================ */
 (function () {
-    var btn  = document.getElementById('themeToggle');
-    var icon = btn.querySelector('.toggle-icon');
+    var btn     = document.getElementById('themeToggle');
+    var icon    = btn.querySelector('.toggle-icon');
+    var ghStats = document.getElementById('ghStats');
     btn.addEventListener('click', function () {
         var isDark = document.body.getAttribute('data-theme') === 'dark';
         document.body.setAttribute('data-theme', isDark ? 'light' : 'dark');
         icon.innerHTML = isDark ? '&#9790;' : '&#9728;';
+        if (ghStats) {
+            ghStats.src = isDark ? ghStats.dataset.lightSrc : ghStats.dataset.darkSrc;
+        }
     });
 }());
 
@@ -203,6 +207,19 @@ window.addEventListener('scroll', function () {
     /* Converts depth (sz) to a 0 (back) → 1 (front) factor for opacity/size */
     function df(sz) { return (sz + R) / (2 * R); }
 
+    /* Theme-aware color helpers — orb uses dark particles on light bg, white on dark bg */
+    function isLight() { return document.body.getAttribute('data-theme') === 'light'; }
+    function dimColor(al) {
+        return isLight()
+            ? 'rgba(0,0,0,' + Math.min(al * 5, 0.85) + ')'
+            : 'rgba(255,255,255,' + al + ')';
+    }
+    function accentColor(al) {
+        return isLight()
+            ? 'rgba(90,55,0,' + al + ')'
+            : 'rgba(255,225,53,' + al + ')';
+    }
+
     function render(ts) {
         ctx.clearRect(0, 0, SIZE, SIZE);
 
@@ -221,16 +238,16 @@ window.addEventListener('scroll', function () {
         });
 
         /* Draw edges — back-facing ones fade out via depth factor */
+        var edgeDimMult = isLight() ? 0.55 : 0.10;
         edges.forEach(function (e) {
             var a = pp[e[0]], b = pp[e[1]];
             var d = (df(a.sz) + df(b.sz)) * 0.5;
             if (d < 0.08) return;
             var bright = a.p.bright || b.p.bright;
-            var al = d * (bright ? 0.30 : 0.10);
+            var al = d * (bright ? 0.45 : edgeDimMult);
             ctx.beginPath();
             ctx.moveTo(a.sx, a.sy); ctx.lineTo(b.sx, b.sy);
-            ctx.strokeStyle = bright
-                ? 'rgba(255,225,53,' + al + ')' : 'rgba(255,255,255,' + al + ')';
+            ctx.strokeStyle = bright ? accentColor(al) : dimColor(al);
             ctx.lineWidth = 0.6; ctx.stroke();
         });
 
@@ -245,18 +262,18 @@ window.addEventListener('scroll', function () {
             if (p.bright) {
                 var pulse = 0.72 + 0.28 * Math.sin(ts * 0.0017 + p.phase);
                 var al    = 0.3 + d * 0.7;
-                ctx.shadowBlur  = 12 * d;
-                ctx.shadowColor = '#FFE135';
+                ctx.shadowBlur  = isLight() ? 0 : 12 * d;
+                ctx.shadowColor = isLight() ? 'transparent' : '#FFE135';
                 ctx.beginPath();
                 ctx.arc(item.sx, item.sy, sz * 1.8 * pulse, 0, Math.PI * 2);
-                ctx.fillStyle = 'rgba(255,225,53,' + al + ')';
+                ctx.fillStyle = accentColor(al);
                 ctx.fill();
                 ctx.shadowBlur = 0;
             } else {
                 var al = 0.06 + d * 0.58;
                 ctx.beginPath();
                 ctx.arc(item.sx, item.sy, sz, 0, Math.PI * 2);
-                ctx.fillStyle = 'rgba(255,255,255,' + al + ')';
+                ctx.fillStyle = dimColor(al);
                 ctx.fill();
             }
         });
@@ -332,11 +349,18 @@ window.addEventListener('scroll', function () {
         if (this.y < 0 || this.y > canvas.height)  this.vy *= -1;
     };
     Particle.prototype.draw = function () {
+        var light = document.body.getAttribute('data-theme') === 'light';
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-        ctx.fillStyle = this.yellow
-            ? 'rgba(255,225,53,' + this.a + ')'
-            : 'rgba(255,255,255,' + (this.a * 0.4) + ')';
+        if (light) {
+            ctx.fillStyle = this.yellow
+                ? 'rgba(90,55,0,' + this.a + ')'
+                : 'rgba(0,0,0,' + (this.a * 0.35) + ')';
+        } else {
+            ctx.fillStyle = this.yellow
+                ? 'rgba(255,225,53,' + this.a + ')'
+                : 'rgba(255,255,255,' + (this.a * 0.4) + ')';
+        }
         ctx.fill();
     };
 
@@ -349,8 +373,12 @@ window.addEventListener('scroll', function () {
                 var dy = particles[a].y - particles[b].y;
                 var d  = Math.sqrt(dx * dx + dy * dy);
                 if (d < 115) {
+                    var light2 = document.body.getAttribute('data-theme') === 'light';
+                    var lineA  = 0.1 * (1 - d / 115);
                     ctx.beginPath();
-                    ctx.strokeStyle = 'rgba(255,225,53,' + (0.1 * (1 - d / 115)) + ')';
+                    ctx.strokeStyle = light2
+                        ? 'rgba(90,55,0,' + (lineA * 2.5) + ')'
+                        : 'rgba(255,225,53,' + lineA + ')';
                     ctx.lineWidth = 0.5;
                     ctx.moveTo(particles[a].x, particles[a].y);
                     ctx.lineTo(particles[b].x, particles[b].y);
@@ -631,7 +659,50 @@ window.addEventListener('scroll', function () {
 }());
 
 /* ============================================================
-   19. PROJECT CARD CLICK EXPAND
+   19. CONTACT FORM — async Formspree submission
+============================================================ */
+(function () {
+    var form   = document.getElementById('contactForm');
+    var btn    = document.getElementById('contactBtn');
+    var status = document.getElementById('formStatus');
+    if (!form) return;
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        btn.disabled    = true;
+        btn.textContent = 'Sending…';
+        status.textContent = '';
+        status.className   = 'form-status';
+
+        fetch(form.action, {
+            method:  'POST',
+            body:    new FormData(form),
+            headers: { 'Accept': 'application/json' }
+        })
+        .then(function (res) {
+            if (res.ok) {
+                status.textContent = '✓ Message sent — I\'ll get back to you soon!';
+                status.classList.add('form-success');
+                form.reset();
+            } else {
+                return res.json().then(function (data) {
+                    throw new Error(data.errors ? data.errors.map(function(e){return e.message;}).join(', ') : 'Something went wrong.');
+                });
+            }
+        })
+        .catch(function (err) {
+            status.textContent = '✕ ' + err.message;
+            status.classList.add('form-error');
+        })
+        .finally(function () {
+            btn.disabled    = false;
+            btn.textContent = 'Send Message →';
+        });
+    });
+}());
+
+/* ============================================================
+   20. PROJECT CARD CLICK EXPAND
 ============================================================ */
 (function () {
     document.querySelectorAll('.project-card').forEach(function (card) {

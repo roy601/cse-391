@@ -17,8 +17,8 @@ cse-391/
 ├── images/
 │   └── IMG_7449.jpg    # Local profile photo
 └── docs/
-    ├── project-overview.md       # This file
-    └── ai-usage-declaration.md  # AI tool usage disclosure
+    ├── project-overview.md       
+    └── ai-usage-declaration.md  
 ```
 
 ---
