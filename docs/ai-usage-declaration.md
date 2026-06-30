@@ -35,8 +35,7 @@ ccc
 | Area | AI Involvement |
 |------|---------------|
 | **HTML structure** | Assisted with semantic markup, accessibility attributes (`aria-label`, `role`), and section organisation |
-| **JavaScript** | Assisted with all 19 JS modules — cursor, scroll effects, 3D particle orb, text scramble, typing effect, count-up animation, theme toggle, etc. |
-| **Code refactoring** | Helped compress and restructure code (from 1,290 lines to 577 lines in `index.html`) while preserving all functionality |
+| **JavaScript** | Assisted with all 19 JS modules | File: index.html — cursor, scroll effects, 3D particle orb, text scramble, typing effect, count-up animation, theme toggle, etc. |
 
 ---
 
