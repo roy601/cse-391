@@ -26,10 +26,8 @@ I, Apurba Roy, declare that artificial intelligence (AI) tools were used as a **
 | Area | AI Involvement |
 |------|---------------|
 | **HTML structure** | Assisted with semantic markup, accessibility attributes (`aria-label`, `role`), and section organisation |
-| **CSS styling** | Helped design the yellow/black/white theme, responsive layout, animations (`@keyframes`), and CSS custom properties |
 | **JavaScript** | Assisted with all 19 JS modules — cursor, scroll effects, 3D particle orb, text scramble, typing effect, count-up animation, theme toggle, etc. |
 | **Code refactoring** | Helped compress and restructure code (from 1,290 lines to 577 lines in `index.html`) while preserving all functionality |
-| **Assignment checklist** | Reviewed the assignment PDF and identified missing requirements (internal CSS, web image, Discord link) |
 
 ---
 
@@ -47,9 +45,4 @@ I, Apurba Roy, declare that artificial intelligence (AI) tools were used as a **
 
 ---
 
-## Acknowledgement
 
-The use of AI assistance does not diminish the academic integrity of this submission. The AI acted as a tool — similar to using documentation, Stack Overflow, or a code editor with autocomplete — while all content, structure decisions, and creative direction were determined by me.
-
-> *"Programs must be written for people to read, and only incidentally for machines to execute."*  
-> — Harold Abelson
