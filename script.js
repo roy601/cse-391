@@ -1,29 +1,5 @@
 'use strict';
-/* ============================================================
-   TABLE OF CONTENTS
-    1.  Year + Page Meta
-    2.  Profile Photo Fallback
-    3.  Custom Cursor
-    4.  Scroll Progress Bar
-    5.  Sticky Nav + Active Section Highlight
-    6.  Mobile Nav Toggle
-    7.  Theme Toggle
-    8.  3D Particle Orb
-    9.  Canvas Particle Network (hero background)
-   10.  3D Tilt on Cards
-   11.  Fade-In on Scroll
-   12.  Text Scramble on Hero Name
-   13.  Typing / Cycling Role Text
-   14.  Count-Up Animation on Stats
-   15.  Magnetic Buttons
-   16.  Mouse Parallax on Hero
-   17.  Cursor Trail
-   18.  Side Section Progress Dots
-   19.  Project Card Click Expand
-============================================================ */
 
-/* Shared mouse position — read by §3 (cursor ring), §16 (parallax), §17 (trail).
-   One listener instead of three. */
 var mouse = { x: 0, y: 0 };
 document.addEventListener('mousemove', function (e) {
     mouse.x = e.clientX;
