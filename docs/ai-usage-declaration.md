@@ -1,9 +1,10 @@
 # AI Usage Declaration
 
 **Course:** CSE 391 — Programming for the Internet  
-**Student:** Apurba Roy  
+**Name:** Apurba Roy  
+**Student ID:** 23101012
 **Assignment:** Assignment 1 — Personal Web Page  
-**Date:** June 2026
+**Date:** 30 June 2026
 
 ---
 
@@ -15,13 +16,21 @@ I, Apurba Roy, declare that artificial intelligence (AI) tools were used as a **
 
 ## AI Tool Used
 
-| Tool | Provider | Role |
-|------|----------|------|
-| Claude (Sonnet 4.6) | Anthropic | Coding assistant via Claude Code CLI |
+| Tool |
+|------|
+| Claude (Sonnet 4.6) |
 
 ---
-
+ccc
 ## How AI Was Used
+
+[✅] Learning/understanding concepts
+[ ] Debugging my code
+[✅] Generating code snippets
+[ ] Writing text content
+[ ] Design/styling ideas
+[✅] Image generation
+[ ] Other: ________________
 
 | Area | AI Involvement |
 |------|---------------|
@@ -42,6 +51,19 @@ I, Apurba Roy, declare that artificial intelligence (AI) tools were used as a **
 | Technology choices and skill listings | My genuine skillset |
 | Favourite quote selection | My own choice |
 | Top 10 developer tools list | My personal preferences |
+
+5. DECLARATION
+------------------------------------------------------------
+I declare that:
+- This disclosure is complete and accurate
+- I understand all code in my submission
+- I can explain and modify my work if asked
+- I take full responsibility for my submission
+
+
+Signature: Apurba Roy
+Date: 30 June 2026
+
 
 ---
 
